@@ -15,7 +15,7 @@ public class GradeCurricular {
 	private BufferedReader buffer;
 	
 	
-	private void leGrade()
+	private void leMateriasGrade()
 	{
 		try {
 			FileInputStream stream = new FileInputStream(".\\GradeCienciaComputacao\\GradeCienciaComputacao.txt");
@@ -35,6 +35,7 @@ public class GradeCurricular {
 				}
 				disciplinas.add(d);
 			   linha = buffer.readLine();
+			   
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -42,6 +43,44 @@ public class GradeCurricular {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	private void incluiPreRequisitos()
+	{
+		FileInputStream stream;
+		try {
+			stream = new FileInputStream(".\\GradeCienciaComputacao\\PreRequisitos");
+			InputStreamReader reader = new InputStreamReader(stream);
+			buffer = new BufferedReader(reader);
+			String linha = buffer.readLine();
+			while(linha != null){
+				String[] str = linha.split("-");
+				Disciplinas disciplina = buscaDisciplina(str[0]);
+				Disciplinas preRequisito = buscaDisciplina(str[1]);
+				disciplina.setPreRequisito(preRequisito);
+				linha = buffer.readLine();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private Disciplinas buscaDisciplina(String nome)
+	{
+		for (Disciplinas disciplinas2 : disciplinas) {
+			if(disciplinas2.getNome().equals(nome)){
+				return disciplinas2;
+			}
+		}
+		
+		return null;
+	}
+	
+	
+	private void imprimeDisciplinas()
+	{
 		for (Disciplinas disciplinas2 : disciplinas) {
 			System.out.println("Disciplina: " + disciplinas2.getNome() +"\n");
 			for (int i = 0; i < 2; i++) {
@@ -49,12 +88,13 @@ public class GradeCurricular {
 			}
 			System.out.println("\n");
 		}
-		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { //TODO RETIRAR DO CÓDIGO, APENAS PARA TESTE
 		GradeCurricular gc = new GradeCurricular();
-		gc.leGrade();
+		gc.leMateriasGrade();
+		gc.incluiPreRequisitos();
+		gc.imprimeDisciplinas();
 	}
 
 }

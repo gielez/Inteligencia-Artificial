@@ -2,12 +2,12 @@ package com.furb.aluno;
 
 import java.util.List;
 
-import com.furb.disciplinas.Disciplinas;
+import com.furb.disciplina.Disciplina;
 
 public class Aluno
 {
 	private String nome;
-	private List<Disciplinas> disciplinasAprovado;
+	private List<Disciplina> disciplinasAprovado;
 
 	public String getNome()
 	{
@@ -18,13 +18,12 @@ public class Aluno
 	{
 		this.nome = nome;
 	}
-
-	public List<Disciplinas> getDisciplinasAprovado()
+	public List<Disciplina> getDisciplinasAprovado() 
 	{
 		return disciplinasAprovado;
 	}
 
-	public void setDisciplinasAprovado(List<Disciplinas> disciplinasAprovado)
+	public void setDisciplinasAprovado(List<Disciplina> disciplinasAprovado)
 	{
 		this.disciplinasAprovado = disciplinasAprovado;
 	}

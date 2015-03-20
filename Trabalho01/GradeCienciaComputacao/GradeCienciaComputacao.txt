@@ -1,128 +1,87 @@
-Arquitetura de Computadores I
-Seg14 / 15-Ter14 / 15 
-Arquitetura de Computadores I
-Qui12 / 13-Sex14 / 15	 
-Fundamentos Matemáticos
-Qui12 / 13-Sex14 / 15 
-Fundamentos Matemáticos
-Seg14 / 15-Qui14 / 15 
-Introdução a Computação
-Sex12 / 13-
-Introdução a Computação
-Seg12 / 13-
-Introdução a Programação
-Ter14 / 15-Qua12 / 13 
-Introdução a Programação
-Seg12 / 13-Qua14 / 15 
-Modelagem Orientada a Objetos
-Ter12 / 13-
-Modelagem Orientada a Objetos
-Qua14 / 15-
-Universidade, Ciência e Pesquisa
-Ter12 / 13-Sex12 / 13 
-Universidade, Ciência e Pesquisa
-Qua12 / 13-Qui14 / 15 
-Arquitetura de Computadores I
-Seg14 / 15-Ter14 / 15 
-Fundamentos Matemáticos
-Qui12 / 13-Sex14 / 15 
-Introdução a Computação
-Sex12 / 13-
-Introdução a Programação
-Seg12 / 13-Qua14 / 15 
-Modelagem Orientada a Objetos
-Ter12 / 13-
-Universidade, Ciência e Pesquisa
-Qua12 / 13-Qui14 / 15 
-Introdução a Programação
-Seg12 / 13-Qua14 / 15 
-Arquitetura de Computadores II
-Qua14 / 15-Sex12 / 13 
-Estatística
-Seg12 / 13-Qua12 / 13 
-Linguagem Científica
-Ter12 / 13-Qui12 / 13 
-Lógica para Computação
-Ter14 / 15-Qui14 / 15 
-Programação I
-Seg14 / 15-Sex14 / 15 
-Programação I
-Seg14 / 15-Sex14 / 15 
-Álgebra Linear
-Seg12 / 13-Qui14 / 15 
-Algoritmos e Estruturas de Dados
-Seg14 / 15-Qua14 / 15 
-Desafios Sociais Contemporâneos
-Ter14 / 15-Sex14 / 15 
-Programação II
-Ter12 / 13-Sex12 / 13 
-Teoria da Computação
-Qua12 / 13-Qui12 / 13 
-Álgebra Linear
-Seg14 / 15-Ter12 / 13 
-Algoritmos e Estruturas de Dados
-Qua12 / 13-Qui12 / 13 
-Desafios Sociais Contemporâneos
-Ter14 / 15-Sex14 / 15 
-Programação II
-Seg12 / 13-Qui14 / 15 
-Teoria da Computação
-Qua14 / 15-Sex12 / 13 
-Desafios Sociais e Contemporâneos
-Ter14 / 15-Sex12 / 13 
-Linguagens de Programação
-Qua12 / 13-Sex14 / 15 
-Linguagens Formais
-Qua14 / 15-
-Métodos Quantitativos
-Ter12 / 13-Qui14 / 15 
-Protocolos de Comunicação de Dados
-Seg14 / 15-
-Teoria dos Grafos
-Seg12 / 13-Qui12 / 13 
-Banco de Dados I
-Seg12 / 13-Seg14 / 15 
-Compiladores
-Qua12 / 13-Qui12 / 13 
-Desenvolvimento de Aplicações Concorrentes e Distribuídas
-Ter12 / 13-Qua14 / 15 
-Engenharia de Software 
-Qui14 / 15-Sex14 / 15 
-Redes de Computadores 
-Ter14 / 15-Sex12 / 13 
-Banco de Dados II
-Seg14 / 15-Sex14 / 15 
-Comportamento Organizacional
-Ter14 / 15-Qua14 / 15 
-Disciplina Optativa I
-Qui12 / 13-Qui14 / 15
-Processo de Software I
-Seg12 / 13-Ter12 / 13 
-Sistemas Distribuídos
-Qua12 / 13-Sex12 / 13 
-Computação Gráfica
-Qui14 / 15-Sex12 / 13 
-Desenvolvimento para Web
-Qua12 / 13-Qui12 / 13 
-Disciplina Optativa II
-Ter12 / 13-Ter14 / 15
-Disciplina Optativa II
-Ter12 / 13-Ter14 / 15
-Inteligência Artificial
-Qua14 / 15-Sex14 / 15 
-Processo de Software II
-Seg12 / 13-Seg14 / 15
-Disciplina Optativa III
-Seg12 / 13-Ter12 / 13 
-Disciplina Optativa IV
-Seg14 / 15-Sex14 / 15 
-Empreendedor em Informática
-Qui12 / 13-
-Legislação em Informática
-Sex12 / 13-
-Sistemas Multimídia
-Qua12 / 13-Qua14 / 15
-Trabalho de Conclusão de Curso I
-Ter14 / 15-Qui14 / 15 
-Trabalho de Conclusão de Curso II
-Sex12 / 13-
+Seg
+Introducao a Programacao-Arquitetura de Computadores I
+Ter
+Introducao a Computacao-Arquitetura de Computadores I
+Qua
+Universidade, Ciencia e Pesquisa-Introducao a Programacao
+Qui
+Fundamentos Matematicos-Universidade, Ciencia e Pesquisa
+Sex
+Introducao a Computacao-Fundamentos Matematicos
+***
+Seg
+Estatastica-Programacao I
+Ter
+Linguagem Cientifica-Logica para Computacao
+Qua
+Estatastica-Arquitetura de Computadores II
+Qui
+Linguagem Cientifica-Logica para Computacao
+Sex
+Arquitetura de Computadores II-Programacao I
+***
+Seg
+Algebra Linear-Algoritmos e Estruturas de Dados
+Ter
+Programacao II-Desafios Sociais Contemporaneos
+Qua
+Teoria da Computacao-Algoritmos e Estruturas de Dados
+Qui
+Teoria da Computacao-Algebra Linear
+Sex
+Programacao II-Desafios Sociais Contemporaneos
+***
+Seg
+Teoria dos Grafos-Linguagens Formais
+Ter
+Metodos Quantitativos-Desafios Sociais e Contemporaneos
+Qua
+Linguagens de Programacao-Linguagens Formais
+Qui
+Teoria dos Grafos-Metodos Quantitativos
+Sex
+Desafios Sociais e Contemporaneos-Linguagens de Programacao
+***
+Seg
+Banco de Dados I-Compiladores
+Ter
+Desenvolvimento de Aplicacoes Concorrentes e Distribuidas-Redes de Computadores
+Qua
+Compiladores-Desenvolvimento de Aplicacoes Concorrentes e Distribuidas
+Qui
+Banco de Dados I-Engenharia de Software
+Sex
+Redes de Computadores-Engenharia de Software
+***
+Seg
+Disciplina Optativa I-Banco de Dados II
+Ter
+Processo de Software I-Comportamento Organizacional
+Qua
+Sistemas Distribuidos-Comportamento Organizacional
+Qui
+Disciplina Optativa I-Sistemas Distribuidos
+Sex
+Processo de Software I-Banco de Dados II
+***
+Seg
+Processo de Software II-Inteligencia Artificial
+Ter
+Disciplina Optativa II-Inteligencia Artificial
+Qua
+Desenvolvimento para Web-Disciplina Optativa II
+Qui
+Desenvolvimento para Web-Computacao Grafica
+Sex
+Computacao Grafica-Processo de Software II
+***
+Seg
+Disciplina Optativa III-Disciplina Optativa IV
+Ter
+Disciplina Optativa III-Trabalho de Conclusao de Curso I
+Qua
+Sistemas Multimidia-Trabalho de Conclusao de Curso I
+Qui
+Empreendedor em Informatica-Sistemas Multimidia
+Sex
+Empreendedor em Informatica-Disciplina Optativa IV

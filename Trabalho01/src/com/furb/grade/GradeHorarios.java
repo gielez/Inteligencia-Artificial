@@ -3,7 +3,7 @@ package com.furb.grade;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.furb.disciplinas.Disciplinas;
+import com.furb.disciplina.Disciplina;
 
 public class GradeHorarios
 {	
@@ -17,6 +17,10 @@ public class GradeHorarios
 	public List<DisciplinasSemestre> getDisciplinasSemestre()
 	{
 		return ds;
+	}
+
+	public void setDisciplinasSemestre(DisciplinasSemestre semestre) {
+		this.ds.add(semestre);
 	}
 	
 }
@@ -34,26 +38,30 @@ class DisciplinasSemestre
 	{
 		return dias;
 	}
+
+	public void setDias(DisciplinaDoDia[] dia) {
+		this.dias = dia;
+	}
 }
 
 class DisciplinaDoDia
 {
-	private Disciplinas primeiraAula;
-	private Disciplinas segundaAula;
+	private Disciplina primeiraAula;
+	private Disciplina segundaAula;
 	
-	public Disciplinas getPrimeiraAula()
+	public Disciplina getPrimeiraAula()
 	{
 		return primeiraAula;
 	}
-	public void setPrimeiraAula(Disciplinas primeiraAula)
+	public void setPrimeiraAula(Disciplina primeiraAula)
 	{
 		this.primeiraAula = primeiraAula;
 	}
-	public Disciplinas getSegundaAula()
+	public Disciplina getSegundaAula()
 	{
 		return segundaAula;
 	}
-	public void setSegundaAula(Disciplinas segundaAula)
+	public void setSegundaAula(Disciplina segundaAula)
 	{
 		this.segundaAula = segundaAula;
 	}	

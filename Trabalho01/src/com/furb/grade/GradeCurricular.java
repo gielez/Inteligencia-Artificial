@@ -29,7 +29,7 @@ public class GradeCurricular {
 		
 	}
 	
-	private void leMaterias()
+	public void leMaterias()
 	{
 		FileInputStream stream;
 		try {
@@ -60,6 +60,9 @@ public class GradeCurricular {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		leMateriasGrade();
+		imprimeDisciplinas();
 
 	}
 	
@@ -155,11 +158,11 @@ public class GradeCurricular {
 		}
 	}
 	
-	public static void main(String[] args) { //TODO RETIRAR DO C�DIGO, APENAS PARA TESTE
-		GradeCurricular gc = new GradeCurricular();
-		gc.leMaterias();
-		gc.leMateriasGrade();
-		gc.imprimeDisciplinas();
-	}
+//	public static void main(String[] args) { //TODO 
+//		GradeCurricular gc = new GradeCurricular();
+//		gc.leMaterias();
+//		gc.leMateriasGrade();
+//		gc.imprimeDisciplinas();
+//	}
 
 }

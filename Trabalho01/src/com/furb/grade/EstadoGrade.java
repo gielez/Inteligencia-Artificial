@@ -162,6 +162,9 @@ public class EstadoGrade implements Estado, Antecessor{
 
 	public static void main(String[] args) {
 		List<Disciplina> disciplinasOfertadas = GradeCurricular.retornaDisciplinas();
+		for (int i = 0; i < disciplinasOfertadas.size(); i++) {
+			System.out.println(i + " " + disciplinasOfertadas.get(i).getNome());
+		}
 
 		List<Disciplina> disciplinasCursadas = new ArrayList<Disciplina>();
 		for (int i = 0; i < 5; i++) {

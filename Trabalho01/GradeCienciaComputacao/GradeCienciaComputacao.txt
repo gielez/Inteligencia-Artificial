@@ -1,12 +1,12 @@
 Arquitetura de Computadores I
 Seg14 / 15-Ter14 / 15
-Fundamentos Matemáticos
+Fundamentos Matematicos
 Qui12 / 13-Sex14 / 15
-Introdução a Computação
+Introducao a Computacao
 Ter12 / 13-Sex12 / 13
-Introdução a Programação
+Introducao a Programacao
 Seg12 / 13-Qua14 / 15
-Universidade, Ciência e Pesquisa
+Universidade, Ciencia e Pesquisa
 Qua12 / 13-Qui14 / 15
 Estatastica
 Seg12 / 13-Qua12 / 13

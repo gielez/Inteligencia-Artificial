@@ -93,5 +93,41 @@ public class GradeCurricular
 		{
 			e.printStackTrace();
 		}
+		
+		lePreRequisitos();
+	}
+	private static void lePreRequisitos(){
+		FileInputStream stream;
+		try {
+			stream = new FileInputStream(".\\GradeCienciaComputacao\\PreRequisitos");
+			InputStreamReader reader = new InputStreamReader(stream);
+			buffer = new BufferedReader(reader);
+			String linha = buffer.readLine();
+			while(linha != null)
+			{
+				String[] str = linha.split("-");
+				Disciplina dis = buscaDisciplina(str[0]);
+				dis.setPreRequisito(buscaDisciplina(str[1]));
+
+				linha = buffer.readLine();
+			}
+			
+		}
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	private static Disciplina buscaDisciplina(String nome){
+		for (Disciplina disciplina : disciplinas) {
+			if(disciplina.getNome().equals(nome)){
+				return disciplina;
+			}
+		}
+		return null;
 	}
 }

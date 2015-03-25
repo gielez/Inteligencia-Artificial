@@ -8,7 +8,9 @@ import com.furb.aluno.Aluno;
 import com.furb.disciplina.Disciplina;
 
 import busca.Antecessor;
+import busca.BuscaIterativo;
 import busca.BuscaLargura;
+import busca.BuscaProfundidade;
 import busca.Estado;
 import busca.Nodo;
 
@@ -18,13 +20,15 @@ public class EstadoGrade implements Estado, Antecessor
 	final List<Disciplina> disciplinasCursadas;
 	final List<Disciplina> disciplinasOfertadas;
 	final Aluno aluno;
-
-	public EstadoGrade(Aluno aluno, List<Disciplina> ofertadas,	List<Disciplina> novo)
+	final List<Disciplina> NosDescartado;
+	
+	public EstadoGrade(Aluno aluno, List<Disciplina> ofertadas, List<Disciplina> novo, List<Disciplina> descartado) 
 	{
 		this.aluno = aluno;
 		this.disciplinasCursadas = aluno.getDisciplinasAprovado();
 		this.disciplinasOfertadas = ofertadas;
 		this.novaGradeAluno = novo;
+		this.NosDescartado = descartado;
 	}
 
 	@Override
@@ -34,36 +38,43 @@ public class EstadoGrade implements Estado, Antecessor
 	}
 
 	@Override
-	public boolean ehMeta()
+	public boolean ehMeta() 
 	{
-		// TODO: Meta: maior preenchimento possivel da carga horária
-		return novaGradeAluno.size() == 5;
+		//Meta: maior preenchimento possivel da carga horária
+		if(novaGradeAluno.size() != 5){
+			if(novaGradeAluno.size() > 0){
+				NosDescartado.add(novaGradeAluno.get(novaGradeAluno.size() - 1));
+				novaGradeAluno.remove(novaGradeAluno.get(novaGradeAluno.size() - 1));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	public List<Estado> sucessores()
 	{
 		List<Estado> suc = new LinkedList<Estado>(); // a lista de sucessores
-
-		// se o horario esta vago preenche
-		for (Disciplina disciplina : disciplinasOfertadas)
+		
+		//se o horario esta vago preenche
+		for (Disciplina disciplina : disciplinasOfertadas) 
 		{
-			if (ehValido(disciplina))
-			{
-				novaGradeAluno.add(disciplina);
-				EstadoGrade novo = new EstadoGrade(this.aluno, this.disciplinasOfertadas, this.novaGradeAluno);
-				suc.add(novo);
+			if (!NosDescartado.contains(disciplina)) {
+				if(ehValido(disciplina))
+				{
+					novaGradeAluno.add(disciplina);
+					EstadoGrade novo = new EstadoGrade(this.aluno , this.disciplinasOfertadas, this.novaGradeAluno, this.NosDescartado);
+					suc.add(novo);
+				}
 			}
 		}
-		
 		return suc;
 	}
-
+	
 	public boolean ehValido(Disciplina disciplina)
 	{
-		// não esta na lista de matérias concluidas
-		if (disciplinasCursadas.contains(disciplina))
-		{
+		//não esta na lista de matérias concluidas
+		if(disciplinasCursadas.contains(disciplina)){
 			return false;
 		}
 
@@ -195,11 +206,17 @@ public class EstadoGrade implements Estado, Antecessor
 		aluno.setDisciplinasAprovado(disciplinasCursadas);
 
 		List<Disciplina> novaGradeAluno = new ArrayList<Disciplina>(5);
-		EstadoGrade grade = new EstadoGrade(aluno, disciplinasOfertadas, novaGradeAluno);
+		EstadoGrade grade = new EstadoGrade(aluno, disciplinasOfertadas, novaGradeAluno, new ArrayList<Disciplina>());
 
 		Nodo n = new BuscaLargura().busca(grade);
+		System.out.println(n == null ? "Sem Solucao!" : "Solucao:\n" + n.montaCaminho() + "\n\n");
 		
+		n = new BuscaProfundidade().busca(grade);
+		System.out.println(n == null ? "Sem Solucao!" : "Solucao:\n" + n.montaCaminho() + "\n\n");
+		
+		n = new BuscaIterativo().busca(grade);
 		System.out.println(n == null ? "Sem Solucao!" : "Solucao:\n" + n.montaCaminho() + "\n\n");
 	}
+	
 
 }

@@ -28,3 +28,9 @@ Desafios Sociais Contemporaneos
 Ter14 / 15-Sex14 / 15
 Teoria da Computacao
 Qua12 / 13-Qui12 / 13
+Teste
+Sex12 / 13-Qua14 / 15
+Teste1
+Qua12 / 13-Qui14 / 15
+Teste2
+Seg12 / 13-Sex14 / 15

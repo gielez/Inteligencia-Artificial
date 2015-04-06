@@ -5,7 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import busca.Antecessor;
+import busca.BuscaIterativo;
 import busca.BuscaLargura;
+import busca.BuscaProfundidade;
 import busca.Estado;
 import busca.MostraStatusConsole;
 import busca.Nodo;
@@ -38,7 +40,7 @@ public class EstadoGrade implements Estado, Antecessor
 	public boolean ehMeta() 
 	{
 		//Meta: maior preenchimento possivel da carga horária
-		if(novaGradeAluno.size() == 5){
+		if(novaGradeAluno.size() == 5 && validaMaterias()){
 			return true;
 		}
 		
@@ -65,22 +67,76 @@ public class EstadoGrade implements Estado, Antecessor
 	
 	private void insereDisciplina(Disciplina dis, List<Disciplina> nova)
 	{
-		if(novaGradeAluno.size() == 0){
+		if(validaMateria1(dis, nova)){
 			novaGradeAluno.add(dis);
 		}
+						
+	}
+	
+//	private boolean validaMateria(Disciplina dis, List<Disciplina> nova){
+//		for (Disciplina disciplina : nova) {
+//			List<DiaSemana> diasGrade = disciplina.getDiaHorario();
+//			List<DiaSemana> diasDisc = dis.getDiaHorario();
+//			
+//			if(mesmoHorario(dis, disciplina)){
+//				return false;
+//			}
+//			
+//			
+////			for (DiaSemana diaSemana : diasGrade) {
+////				for (DiaSemana diaDisc : diasDisc) {
+////					if(diaSemana.getDia() == diaDisc.getDia()){
+////						if(diaSemana.getHorario() == diaDisc.getHorario()){
+////							return false;
+////						}
+////					}
+////				}
+//			}
+//		return true;
+//		}
+	
+	private boolean validaMaterias(){
+		for (int i = 0; i < novaGradeAluno.size(); i++) {
+			List<DiaSemana> diasGrade = novaGradeAluno.get(i).getDiaHorario();
+			for (int j = i + 1; j < novaGradeAluno.size(); j++) {
+				List<DiaSemana> diasDisc = novaGradeAluno.get(j)
+						.getDiaHorario();
+				for (DiaSemana diaSemana : diasGrade) {
+					for (DiaSemana diaDisc : diasDisc) {
+						if (diaSemana.getDia() == diaDisc.getDia()) {
+							if (diaSemana.getHorario() == diaDisc.getHorario()) {
+								return false;
+							}
+						}
+					}
+				}
+			}
+		}
+		return true;
+	}
+	
+	public boolean valida(DiaSemana aula1, DiaSemana aula2) {
+		return aula1.getDia().equals(aula2.getDia()) && aula1.getHorario().equals(aula2.getHorario());
+	}
+	
+	private boolean validaMateria1(Disciplina dis, List<Disciplina> nova){
+		boolean ok = false;
 		
+		if(novaGradeAluno.size() == 0){
+			ok = true;
+		}
 		
 		// existe outra matÃ©ria selecionada nesse horÃ¡rio
 		List<DiaSemana> dia = dis.getDiaHorario();
 		for (Disciplina discAluno : nova) {// percorre a grade do aluno(que pode
-											// conter atÃ© 5 disciplinas)
+											// conter até 5 disciplinas)
 			List<DiaSemana> diaAluno = discAluno.getDiaHorario();
 
 			if (!novaGradeAluno.contains(dis)) {
 				// se os dias são diferente = não valida horário
 				if (dia.get(0).getDia() != diaAluno.get(0).getDia()) {
 					if (dia.get(1).getDia() != diaAluno.get(1).getDia()) {
-						novaGradeAluno.add(dis);
+						ok = true;
 					}
 				}
 				
@@ -89,7 +145,7 @@ public class EstadoGrade implements Estado, Antecessor
 					if (dia.get(0).getHorario() != diaAluno.get(0).getHorario()) {
 						if (dia.get(1).getDia() == diaAluno.get(1).getDia()) {
 							if (dia.get(1).getHorario() != diaAluno.get(1).getHorario()) {
-								novaGradeAluno.add(dis);
+								ok = true;
 							}
 						}
 					}
@@ -98,7 +154,7 @@ public class EstadoGrade implements Estado, Antecessor
 					if (dia.get(0).getDia() != diaAluno.get(0).getDia()) {
 						if (dia.get(1).getDia() == diaAluno.get(1).getDia()) {
 							if (dia.get(1).getHorario() != diaAluno.get(1).getHorario()) {
-								novaGradeAluno.add(dis);
+								ok = true;
 							}
 						}
 					}
@@ -107,7 +163,7 @@ public class EstadoGrade implements Estado, Antecessor
 					if (dia.get(0).getDia() == diaAluno.get(0).getDia()) {
 						if (dia.get(1).getHorario() != diaAluno.get(1).getHorario()) {
 								if (dia.get(1).getDia() != diaAluno.get(1).getDia()) {
-								novaGradeAluno.add(dis);
+									ok = true;
 							}
 						}
 					}
@@ -115,17 +171,12 @@ public class EstadoGrade implements Estado, Antecessor
 				
 				}
 			}
-		}	
-						
+		}
+		return ok;
 	}
 	
 	public boolean ehValido(Disciplina disciplina)
 	{
-		//não esta na lista de matérias concluidas
-		if(disciplinasCursadas.contains(disciplina)){
-			return false;
-		}
-
 		// possui o pré requisito em aberto
 		if (disciplina.getPreRequisito() != null)
 		{
@@ -219,10 +270,6 @@ public class EstadoGrade implements Estado, Antecessor
 	public static void main(String[] args)
 	{
 		List<Disciplina> disciplinasOfertadas = GradeCurricular.retornaDisciplinas();		
-//		for (int i = 0; i < disciplinasOfertadas.size(); i++)
-//		{
-//			System.out.println(i + " " + disciplinasOfertadas.get(i).getNome());
-//		}
 
 		List<Disciplina> disciplinasCursadas = new ArrayList<Disciplina>();
 		for (int i = 0; i < 5; i++)
@@ -244,13 +291,13 @@ public class EstadoGrade implements Estado, Antecessor
 		List<Disciplina> novaGradeAluno = new ArrayList<Disciplina>(5);
 		EstadoGrade grade = new EstadoGrade(aluno, disciplinasNaoConcluidas, novaGradeAluno);
 
-		Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(grade);
-		System.out.println(n == null ? "Sem Solucao!" : "Solucao:\n" + "	"  + n.montaCaminho()  + "\n\n");
+//		Nodo n = new BuscaLargura(new MostraStatusConsole()).busca(grade);
+//		System.out.println(n == null ? "Sem Solucao!" : "Solucao:\n" + "	"  + n.montaCaminho()  + "\n\n");
 		
-//		n = new BuscaProfundidade(new MostraStatusConsole()).busca(grade);
-//		System.out.println(n == null ? "Sem Solucao!" : "Solucao:\n" + "	" +  n.montaCaminho() +  "\n\n");
+		Nodo n = new BuscaProfundidade(new MostraStatusConsole()).busca(grade);
+		System.out.println(n == null ? "Sem Solucao!" : "Solucao:\n" + "	" +  n.montaCaminho() +  "\n\n");
 //		
-//		n = new BuscaIterativo(new MostraStatusConsole()).busca(grade);
+//		Nodo n = new BuscaIterativo(new MostraStatusConsole()).busca(grade);
 //		System.out.println(n == null ? "Sem Solucao!" : "Solucao:\n" + "	" +  n.montaCaminho() + "\n\n");
 	}
 	
